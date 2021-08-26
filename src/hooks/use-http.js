@@ -9,9 +9,9 @@ const useHttp = (requestConfig, successCallback) => {
     setError(null);
     try {
       const response = await fetch(requestConfig.url, {
-        method: requestConfig.method,
-        body: JSON.stringify(requestConfig.body),
-        headers: requestConfig.headers,
+        method: requestConfig.method ? requestConfig.method : 'GET',
+        body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
+        headers: requestConfig.headers || {},
       });
 
       if (!response.ok) {
@@ -25,6 +25,11 @@ const useHttp = (requestConfig, successCallback) => {
       setError(err.message || 'Something went wrong!');
     }
     setIsLoading(false);
+  };
+  return {
+    sendRequest,
+    isLoading,
+    error,
   };
 };
 
