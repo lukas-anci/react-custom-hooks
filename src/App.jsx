@@ -16,6 +16,7 @@ function App() {
 
     setTasks(loadedTasks);
   };
+
   const {
     sendRequest: fetchTasks,
     isLoading,
@@ -27,7 +28,8 @@ function App() {
   }, []);
 
   const taskAddHandler = (task) => {
-    setTasks((prevTasks) => prevTasks.concat(task));
+    // setTasks((prevTasks) => prevTasks.concat(task));
+    fetchTasks();
   };
 
   return (

@@ -10,7 +10,7 @@ const useHttp = (requestConfig, successCallback) => {
     try {
       const response = await fetch(requestConfig.url, {
         method: requestConfig.method ? requestConfig.method : 'GET',
-        body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
+        body: requestConfig.body ? JSON.stringify({ text: taskText }) : null,
         headers: requestConfig.headers || {},
       });
 
