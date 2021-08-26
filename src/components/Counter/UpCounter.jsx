@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from '../UI/Card';
 import useCounter from './../../hooks/use-counter';
 
 const UpCounter = () => {
-  useCounter(counter);
+  const counter = useCounter();
 
   return (
     <Card>
